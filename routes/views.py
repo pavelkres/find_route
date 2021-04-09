@@ -47,8 +47,8 @@ def add_route(request):
             cities = City.objects.filter(id__in=[from_city_id, to_city_id]).in_bulk()
             form = RouteModelForm(
                 initial={
-                    'from_city': cities['from_city_id'],
-                    'to_city': cities['to_city_id'],
+                    'from_city': from_city_id,
+                    'to_city': to_city_id,
                     'travel_times': total_time,
                     'trains': qs,
                 }
